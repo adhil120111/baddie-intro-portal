@@ -42,7 +42,8 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
             ref={audioRef}
             preload="auto"
           >
-            <source src="https://www.youtube.com/watch?v=YRlcRn7lh-k" type="audio/mpeg" />
+            {/* Note: Direct YouTube audio cannot be embedded. Please upload an audio file to /public/audio/soundtrack.mp3 */}
+            <source src="/audio/soundtrack.mp3" type="audio/mpeg" />
           </audio>
         </>
       )}

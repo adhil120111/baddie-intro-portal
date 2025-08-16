@@ -13,7 +13,7 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
         <Button
           onClick={onEnter}
           size="lg"
-          className="bg-neon-pink/20 text-white border border-neon-pink/50 hover:bg-neon-pink/30 hover:border-neon-pink hover:shadow-neon-glow text-xl px-12 py-6 transition-all duration-500 hover:scale-105"
+          className="bg-neon-pink/20 text-white border border-neon-pink/50 hover:bg-neon-pink/30 hover:border-neon-pink text-xl px-12 py-6 transition-all duration-500 hover:scale-105"
         >
           Click to Enter
         </Button>
