@@ -104,9 +104,23 @@ All colors MUST be HSL.
   }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
 @layer utilities {
-  .glow-text {
-    text-shadow: 0 0 20px hsl(var(--neon-pink)), 0 0 40px hsl(var(--neon-pink)), 0 0 60px hsl(var(--neon-pink));
+  .glow-text-white {
+    text-shadow: 0 0 20px hsl(0 0% 100%), 0 0 40px hsl(0 0% 100%), 0 0 60px hsl(0 0% 100%);
+  }
+  
+  .glow-text-red {
+    text-shadow: 0 0 20px hsl(0 100% 50%), 0 0 40px hsl(0 100% 50%), 0 0 60px hsl(0 100% 50%);
+  }
+  
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
   }
   
   .text-neon-pink {
@@ -127,5 +141,9 @@ All colors MUST be HSL.
   
   .shadow-neon-glow {
     box-shadow: 0 0 30px hsl(var(--neon-pink) / 0.8), 0 0 60px hsl(var(--neon-pink) / 0.4);
+  }
+  
+  .blur-background {
+    backdrop-filter: blur(10px);
   }
 }
