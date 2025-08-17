@@ -9,7 +9,7 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
 
   useEffect(() => {
     if (isPlaying && audioRef.current) {
-      // Set volume and play audio for 32 seconds
+      // Set volume and play audio for 23 seconds
       audioRef.current.volume = 0.7;
       audioRef.current.currentTime = 0;
       audioRef.current.play().catch(console.error);
@@ -18,7 +18,7 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
         if (audioRef.current) {
           audioRef.current.pause();
         }
-      }, 32000);
+      }, 23000);
 
       return () => clearTimeout(timer);
     }
@@ -42,7 +42,7 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
             ref={audioRef}
             preload="auto"
           >
-            {/* Note: You need to download the audio from https://youtu.be/YRlcRn7lh-k and save it as /public/audio/soundtrack.mp3 */}
+            {/* Note: You need to download the audio from https://youtu.be/HO7uge9UUrA and save it as /public/audio/soundtrack.mp3 */}
             <source src="/audio/soundtrack.mp3" type="audio/mpeg" />
             <source src="/audio/soundtrack.wav" type="audio/wav" />
           </audio>
