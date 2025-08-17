@@ -28,24 +28,21 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
     <div className="fixed inset-0 z-0">
       {isPlaying && (
         <>
-          <video
+          <iframe
             className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
+            src="https://www.youtube.com/embed/IbdJwodbcys?autoplay=1&mute=1&loop=1&playlist=IbdJwodbcys&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&fs=0&disablekb=1"
+            title="Background Video"
+            allow="autoplay; encrypted-media"
             style={{ 
               transform: 'scale(1.1)',
               filter: 'brightness(0.6)',
             }}
-          >
-            <source src="/video/background.mp4" type="video/mp4" />
-            <source src="/video/background.webm" type="video/webm" />
-          </video>
+          />
           <audio
             ref={audioRef}
             preload="auto"
           >
+            {/* Note: You need to download the audio from https://youtube.com/shorts/Al6eH-7W7Vo?si=vQTbYYxOYDaAhHEG and save it as /public/audio/soundtrack.mp3 */}
             <source src="/audio/soundtrack.mp3" type="audio/mpeg" />
             <source src="/audio/soundtrack.wav" type="audio/wav" />
           </audio>
