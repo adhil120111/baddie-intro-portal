@@ -9,10 +9,18 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
 
   useEffect(() => {
     if (isPlaying && audioRef.current) {
-      // Set volume and play audio on loop
+      // Set volume and play audio for 23 seconds
       audioRef.current.volume = 0.7;
       audioRef.current.currentTime = 0;
       audioRef.current.play().catch(console.error);
+      
+      const timer = setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.pause();
+        }
+      }, 23000);
+
+      return () => clearTimeout(timer);
     }
   }, [isPlaying]);
 
@@ -20,23 +28,19 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
     <div className="fixed inset-0 z-0">
       {isPlaying && (
         <>
-          <video
+          <iframe
             className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
+            src="https://www.youtube.com/embed/IbdJwodbcys?autoplay=1&mute=1&loop=1&playlist=IbdJwodbcys&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&fs=0&disablekb=1"
+            title="Background Video"
+            allow="autoplay; encrypted-media"
             style={{ 
               transform: 'scale(1.1)',
               filter: 'brightness(0.6)',
             }}
-          >
-            <source src="/qbackground.mp4" type="video/mp4" />
-          </video>
+          />
           <audio
             ref={audioRef}
             preload="auto"
-            loop
           >
             <source src="/soundtrack.mp3.mp3" type="audio/mpeg" />
           </audio>
