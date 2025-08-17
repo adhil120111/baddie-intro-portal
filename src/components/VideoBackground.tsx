@@ -26,6 +26,9 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      // Force video to load and be ready
+      video.load();
+      
       // Add event listeners to ensure continuous playback
       const handleEnded = () => {
         video.currentTime = 0;
@@ -38,17 +41,34 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
         }
       };
 
+      const handleCanPlay = () => {
+        if (isPlaying) {
+          video.play().catch(console.error);
+        }
+      };
+
+      const handleLoadedData = () => {
+        if (isPlaying) {
+          video.play().catch(console.error);
+        }
+      };
+
       video.addEventListener('ended', handleEnded);
       video.addEventListener('pause', handlePause);
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadeddata', handleLoadedData);
 
       return () => {
         video.removeEventListener('ended', handleEnded);
         video.removeEventListener('pause', handlePause);
+        video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('loadeddata', handleLoadedData);
       };
     }
   }, [isPlaying]);
+
   return (
-    <div className="fixed inset-0 z-0">
+    <div className="fixed inset-0 z-0 overflow-hidden">
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
@@ -58,13 +78,18 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
         playsInline
         preload="auto"
         style={{ 
-          transform: 'scale(1.1)',
-          filter: 'brightness(0.6)',
-          display: isPlaying ? 'block' : 'none'
+          transform: 'scale(1.05)',
+          filter: 'brightness(0.8) contrast(1.1)',
+          minWidth: '100%',
+          minHeight: '100%'
         }}
       >
         <source src="/qbackground.mp4" type="video/mp4" />
       </video>
+      
+      {/* Subtle overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 z-10" />
+      
       {isPlaying && (
         <audio
           ref={audioRef}
@@ -74,7 +99,6 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
           <source src="/soundtrack.mp3.mp3" type="audio/mpeg" />
         </audio>
       )}
-      <div className="absolute inset-0 bg-black/40 z-10" />
     </div>
   );
 };
