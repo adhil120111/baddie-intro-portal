@@ -42,9 +42,7 @@ export const VideoBackground = ({ isPlaying }: VideoBackgroundProps) => {
             ref={audioRef}
             preload="auto"
           >
-            {/* Note: You need to download the audio from https://youtube.com/shorts/Al6eH-7W7Vo?si=vQTbYYxOYDaAhHEG and save it as /public/audio/soundtrack.mp3 */}
-            <source src="/audio/soundtrack.mp3" type="audio/mpeg" />
-            <source src="/audio/soundtrack.wav" type="audio/wav" />
+            <source src="/soundtrack.mp3.mp3" type="audio/mpeg" />
           </audio>
         </>
       )}
