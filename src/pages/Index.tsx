@@ -23,7 +23,7 @@ const Index = () => {
       {hasEntered && (
         <div className="relative z-20 min-h-screen flex flex-col items-center justify-center text-center px-4">
           <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white glow-text-white font-orbitron">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white glow-text-red font-orbitron">
               <SplitTextAnimation text="ney000o" delay={500} />
             </h1>
             
