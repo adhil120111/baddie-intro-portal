@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ParticleBackground } from './ParticleBackground';
+import { TypewriterAnimation } from './TypewriterAnimation';
+import skullBackground from '@/assets/skull-background.png';
 
 interface LandingPageProps {
   onEnter: () => void;
@@ -10,12 +12,12 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
     <div className="fixed inset-0 z-50 blur-background flex items-center justify-center">
       <ParticleBackground />
       
-      {/* Add the uploaded image */}
+      {/* Skull background */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img 
-          src="/lovable-uploads/0bf21891-516e-45f5-b239-074657cbd8dd.png" 
-          alt="Background" 
-          className="w-64 h-64 object-cover opacity-20"
+          src={skullBackground} 
+          alt="Skull Background" 
+          className="w-96 h-96 object-cover opacity-30"
         />
       </div>
       
@@ -25,13 +27,23 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
           size="lg"
           className="bg-transparent text-white border border-white/20 hover:bg-white/10 hover:border-white/40 text-lg px-8 py-4 transition-all duration-500 hover:scale-105 font-rajdhani flex items-center gap-3"
         >
-          <span>click to enter</span>
+          <TypewriterAnimation 
+            text="click to enter" 
+            delay={500}
+            speed={150}
+          />
           <img 
             src="/skull-icon.png" 
             alt="skull" 
             className="w-6 h-6"
           />
         </Button>
+        
+        {/* Copyright claims */}
+        <div className="absolute bottom-4 left-4 text-xs text-white/60 font-rajdhani">
+          <p>© 2024 ney000o. All rights reserved.</p>
+          <p>Gaming content and assets used under fair use.</p>
+        </div>
       </div>
     </div>
   );
