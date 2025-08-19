@@ -25,7 +25,7 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
         <Button
           onClick={onEnter}
           size="lg"
-          className="bg-transparent text-white border-none hover:bg-transparent text-lg px-8 py-4 transition-all duration-500 hover:scale-105 font-rajdhani flex items-center gap-3"
+          className="bg-transparent text-white border border-white/20 hover:bg-white/10 hover:border-white/40 text-lg px-8 py-4 transition-all duration-500 hover:scale-105 font-rajdhani flex items-center gap-3"
         >
           <TypewriterAnimation 
             text="click to enter" 
@@ -33,9 +33,9 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
             speed={150}
           />
           <img 
-            src="/lovable-uploads/e168eae9-b29f-42db-9d7a-c7eb13c90b47.png" 
-            alt="gaming logo" 
-            className="w-8 h-8"
+            src="/skull-icon.png" 
+            alt="skull" 
+            className="w-6 h-6"
           />
         </Button>
         
