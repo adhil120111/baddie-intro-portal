@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { LandingPage } from '@/components/LandingPage';
 import { VideoBackground } from '@/components/VideoBackground';
 import { ParticleBackground } from '@/components/ParticleBackground';
-import { SplitTextAnimation } from '@/components/SplitTextAnimation';
+import { TypewriterAnimation } from '@/components/TypewriterAnimation';
 import { BlurTextAnimation } from '@/components/BlurTextAnimation';
 import { SocialLinks } from '@/components/SocialLinks';
 
@@ -24,15 +24,18 @@ const Index = () => {
         <div className="relative z-20 min-h-screen flex flex-col items-center justify-center text-center px-4">
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white glow-text-red font-orbitron">
-              <SplitTextAnimation text="ney000o" delay={500} />
+              <TypewriterAnimation text="baddieeee" delay={500} speed={200} />
             </h1>
             
-            <div className="text-xl md:text-2xl text-red-500 mb-8">
-              <BlurTextAnimation 
-                text="gaming since 2014" 
-                className="block glow-text-white font-rajdhani font-semibold"
-                delay={2000}
-              />
+            <div className="text-xl md:text-2xl mb-8">
+              <div className="shiny-ascii-text font-mono text-green-400 animate-pulse">
+                ██╗  ██╗ █████╗ ███╗   ███╗██╗███╗   ██╗ ██████╗     ███████╗██╗███╗   ██╗ ██████╗███████╗    ██████╗  ██████╗ ██╗██╗  ██╗
+                ██║ ██╔╝██╔══██╗████╗ ████║██║████╗  ██║██╔════╝     ██╔════╝██║████╗  ██║██╔════╝██╔════╝    ╚════██╗██╔═████╗██║██║  ██║
+                █████╔╝ ███████║██╔████╔██║██║██╔██╗ ██║██║  ███╗    ███████╗██║██╔██╗ ██║██║     █████╗       █████╔╝██║██╔██║██║███████║
+                ██╔═██╗ ██╔══██║██║╚██╔╝██║██║██║╚██╗██║██║   ██║    ╚════██║██║██║╚██╗██║██║     ██╔══╝      ██╔═══╝ ████╔╝██║██║╚════██║
+                ██║  ██╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║╚██████╔╝    ███████║██║██║ ╚████║╚██████╗███████╗    ███████╗╚██████╔╝██║     ██║
+                ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝    ╚══════╝ ╚═════╝ ╚═╝     ╚═╝
+              </div>
             </div>
           </div>
           

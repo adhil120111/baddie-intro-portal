@@ -12,14 +12,6 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
     <div className="fixed inset-0 z-50 blur-background flex items-center justify-center">
       <ParticleBackground />
       
-      {/* Skull background */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <img 
-          src={skullBackground} 
-          alt="Skull Background" 
-          className="w-96 h-96 object-cover opacity-30"
-        />
-      </div>
       
       <div className="text-center z-10">
         <Button

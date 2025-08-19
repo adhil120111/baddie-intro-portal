@@ -146,4 +146,19 @@ All colors MUST be HSL.
   .blur-background {
     backdrop-filter: blur(10px);
   }
+  
+  .shiny-ascii-text {
+    background: linear-gradient(45deg, #00ff00, #ff00ff, #00ffff, #ff00ff, #00ff00);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shiny-gradient 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+  
+  @keyframes shiny-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
 }
