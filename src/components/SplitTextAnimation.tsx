@@ -10,16 +10,32 @@ export const SplitTextAnimation = ({ text, className = "", delay = 0 }: SplitTex
   const [animatedLetters, setAnimatedLetters] = useState<boolean[]>([]);
 
   useEffect(() => {
+    const startAnimation = () => {
+      // Reset all letters first
+      setAnimatedLetters([]);
+      
+      setTimeout(() => {
+        text.split('').forEach((_, index) => {
+          setTimeout(() => {
+            setAnimatedLetters(prev => {
+              const newState = [...prev];
+              newState[index] = true;
+              return newState;
+            });
+          }, index * 100);
+        });
+      }, 500);
+    };
+
     const timer = setTimeout(() => {
-      text.split('').forEach((_, index) => {
-        setTimeout(() => {
-          setAnimatedLetters(prev => {
-            const newState = [...prev];
-            newState[index] = true;
-            return newState;
-          });
-        }, index * 100);
-      });
+      startAnimation();
+      
+      // Set up loop
+      const loopInterval = setInterval(() => {
+        startAnimation();
+      }, text.length * 100 + 2000); // Wait for animation to complete + 2s pause
+      
+      return () => clearInterval(loopInterval);
     }, delay);
 
     return () => clearTimeout(timer);

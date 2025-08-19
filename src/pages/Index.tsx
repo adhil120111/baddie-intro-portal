@@ -29,7 +29,7 @@ const Index = () => {
             
             <div className="text-xl md:text-2xl text-red-500 mb-8">
               <BlurTextAnimation 
-                text="gaming as passion, developer as reason" 
+                text="gaming since 2014" 
                 className="block glow-text-white font-rajdhani font-semibold"
                 delay={2000}
               />

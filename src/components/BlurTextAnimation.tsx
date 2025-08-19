@@ -10,8 +10,22 @@ export const BlurTextAnimation = ({ text, className = "", delay = 0 }: BlurTextA
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const startAnimation = () => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 100);
+    };
+
     const timer = setTimeout(() => {
-      setIsVisible(true);
+      startAnimation();
+      
+      // Set up loop
+      const loopInterval = setInterval(() => {
+        startAnimation();
+      }, 3000); // Loop every 3 seconds
+      
+      return () => clearInterval(loopInterval);
     }, delay);
 
     return () => clearTimeout(timer);

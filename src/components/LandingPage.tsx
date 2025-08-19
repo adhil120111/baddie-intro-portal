@@ -23,9 +23,14 @@ export const LandingPage = ({ onEnter }: LandingPageProps) => {
         <Button
           onClick={onEnter}
           size="lg"
-          className="bg-transparent text-white border border-neon-pink/30 hover:bg-neon-pink/10 hover:border-neon-pink text-xl px-12 py-6 transition-all duration-500 hover:scale-105 font-orbitron"
+          className="bg-transparent text-white border border-white/20 hover:bg-white/10 hover:border-white/40 text-lg px-8 py-4 transition-all duration-500 hover:scale-105 font-rajdhani flex items-center gap-3"
         >
-          Click to Enter
+          <span>click to enter</span>
+          <img 
+            src="/skull-icon.png" 
+            alt="skull" 
+            className="w-6 h-6"
+          />
         </Button>
       </div>
     </div>
